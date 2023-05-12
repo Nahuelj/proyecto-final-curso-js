@@ -9,6 +9,8 @@ let $taskText = Array.from(document.querySelectorAll("#taskText"));
 let $tasks = Array.from(document.querySelectorAll(".task"));
 const $date = document.getElementById("date");
 
+loadTasks();
+
 function updateElements(){
     $btnDelete = Array.from(document.querySelectorAll("#btn-delete"));
     $btnReplace = Array.from(document.querySelectorAll("#btn-replace"));
@@ -23,6 +25,7 @@ function start(){
     editText();
     replaceTask();
     check();
+    saveTasks();
 }
 start();
 
@@ -66,6 +69,7 @@ function cleanTasks(e){
     e.preventDefault();
     $container.innerHTML = "";
     updateElements();
+    saveTasks();
 }
 $cleanTasks.addEventListener("click", cleanTasks);
 
@@ -78,6 +82,7 @@ function deleteTask(){
     btn.onclick = (e) =>{
         e.preventDefault();
         btn.parentElement.remove();
+        saveTasks();
     }
 });
 }
@@ -89,6 +94,7 @@ function editText(){
         text.onkeydown = (e) =>{
             if(e.key === "Enter"){
                 text.blur();
+                saveTasks();
             }
         }
     });
@@ -112,7 +118,7 @@ function replaceTask(){
                 $container.insertBefore($taskToChange, $nextTaskSelected);
 
                 $taskSelected = "";
-
+                saveTasks();
             }
             
             
@@ -134,6 +140,7 @@ function check(){
         btn.onclick = () =>{
             let p = btn.nextElementSibling;
             p.classList.toggle("cheked")
+            saveTasks();
         }
     });
 }
@@ -152,3 +159,16 @@ let number = date.getDate();
 let textDate = `${day} ${number} de ${month} ${year}`;
 
 $date.innerHTML = textDate;
+
+
+// GUARDAR EN EL STORAGE LAS TAREAS
+function saveTasks(){
+    let tasks = $container.innerHTML;
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks(){
+    let previusTasks = JSON.parse(localStorage.getItem("tasks"));
+    $container.innerHTML = previusTasks;
+}
+
