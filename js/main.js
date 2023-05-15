@@ -148,7 +148,7 @@ function check(){
 // RENDERIZAR FECHA ACTUAL
 let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
-let days = ['Lunes', 'Martes', 'Martes', "Miercoles", "Jueves", "Viernes", "Sabado","Domingo"];
+let days = ["Domingo",'Lunes', 'Martes', 'Martes', "Miercoles", "Jueves", "Viernes", "Sabado"];
 
 let date = new Date();
 let month = months[date.getMonth()];
