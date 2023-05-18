@@ -38,6 +38,7 @@ function createTask (e) {
 
         const $newTask = document.createElement("div");
         $newTask.classList.add("task");
+        $newTask.classList.add("created");
 
         let inputValue = $inputCreateTask.value;
         let card = `
@@ -67,9 +68,14 @@ $addTask.addEventListener("keydown", (e)=>{
 // ELIMINAR TODAS LAS TAREAS EXISTENTES (CLEAN)
 function cleanTasks(e){
     e.preventDefault();
-    $container.innerHTML = "";
-    updateElements();
-    saveTasks();
+    $container.classList.add("deleted");
+
+    setTimeout(() => {
+        $container.innerHTML = "";
+        $container.classList.remove("deleted");
+        updateElements();
+        saveTasks();
+    }, 95);
 }
 $cleanTasks.addEventListener("click", cleanTasks);
 
@@ -81,8 +87,13 @@ function deleteTask(){
     $btnDelete.forEach(btn => {
     btn.onclick = (e) =>{
         e.preventDefault();
-        btn.parentElement.remove();
-        saveTasks();
+        btn.parentElement.classList.remove("created");
+        btn.parentElement.classList.add("deleted");
+        setTimeout(() => {
+            btn.parentElement.remove();
+            saveTasks();
+        }, 90);
+        
     }
 });
 }
@@ -110,7 +121,7 @@ function replaceTask(){
 
             if($taskSelected){
                 $taskSelected.classList.remove("selected");
-
+                removeReplaceAnimation();
                 let $taskToChange = btn.parentElement;
                 $nextTaskToChange = $taskToChange.nextElementSibling;
 
@@ -126,11 +137,25 @@ function replaceTask(){
 
                 $taskSelected = btn.parentElement;
                 $taskSelected.classList.add("selected");
-
+                applyReplaceAnimation();
                 $nextTaskSelected = $taskSelected.nextElementSibling;
             }
             
         }
+    });
+}
+
+function applyReplaceAnimation(){
+    $btnReplace.forEach(btn => {
+        if(!btn.parentElement.classList.contains("selected")){
+            btn.classList.add("rotate");
+        }
+    });
+}
+
+function removeReplaceAnimation(){
+    $btnReplace.forEach(btn => {
+        btn.classList.remove("rotate");
     });
 }
 

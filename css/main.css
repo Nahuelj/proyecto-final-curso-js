@@ -1,3 +1,47 @@
+@keyframes created {
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.created {
+  animation: created 0.1s ease-in-out;
+}
+
+@keyframes deleted {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+}
+.deleted {
+  animation: deleted 0.1s ease-in-out;
+}
+
+@keyframes respirar {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.selected {
+  animation: respirar 2s ease-in-out infinite;
+}
+
+.rotate {
+  opacity: 0.4;
+}
+
 * {
   padding: 0;
   margin: 0;
