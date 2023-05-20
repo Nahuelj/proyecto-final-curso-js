@@ -38,8 +38,20 @@
   animation: respirar 2s ease-in-out infinite;
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .rotate {
-  opacity: 0.4;
+  animation: rotate 1s linear infinite;
+}
+.rotate img:hover {
+  transform: scale(1.2);
+  transition: scale 0.04s ease-in;
 }
 
 * {
@@ -62,17 +74,25 @@ body {
 
 #date {
   background-color: white;
-  padding: 0.2rem 0.7rem;
+  padding: 0.3rem 0.7rem;
   border-radius: 15px;
-  margin-top: 2rem;
 }
 
 h1 {
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+h1 img {
+  width: 40px;
 }
 
 .task {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   padding: 1rem;
   margin: 1rem;
@@ -87,6 +107,14 @@ h1 {
   text-align: center;
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+}
+
 .selected {
   transform: scale(1.1);
 }
@@ -94,6 +122,60 @@ h1 {
 .cheked {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+form input {
+  height: 1.5rem;
+  outline: none;
+  padding: 0rem 0.4rem;
+}
+
+#btn-replace, #idea, #cleanTasks, #addTask, #btn-check, #btn-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#btn-replace img, #idea img, #cleanTasks img, #addTask img, #btn-check img, #btn-delete img {
+  width: 20px;
+  height: 20px;
+}
+#btn-replace:hover, #idea:hover, #cleanTasks:hover, #addTask:hover, #btn-check:hover, #btn-delete:hover {
+  transform: scale(1.2);
+  transition: all 0.04s ease-in;
+}
+
+#addTask img, #cleanTasks img {
+  width: 35px;
+  height: 35px;
+}
+
+.container-date-idea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+#idea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#idea img {
+  background-color: white;
+  border-radius: 15px;
+  padding: 0.3rem;
 }
 
 /*# sourceMappingURL=main.css.map */

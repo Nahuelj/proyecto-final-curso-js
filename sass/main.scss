@@ -16,21 +16,30 @@ body{
     font-family: sans-serif;
     background-color: #181A1B;
     overflow-x: hidden;
+
 }
 
 #date{
     background-color: white;
-    padding: 0.2rem 0.7rem;
+    padding: 0.3rem 0.7rem;
     border-radius: 15px;
-    margin-top: 2rem;
 }
 
 h1{
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    img{
+        width: 40px;
+    }
 }
 
 .task{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: .5rem;
     padding: 1rem;
     margin: 1rem;
@@ -45,6 +54,14 @@ h1{
     }
 }
 
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+}
+
 .selected{
     transform: scale(1.1);
 }
@@ -54,5 +71,73 @@ h1{
     opacity: .6;
 }
 
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    input{
+        height: 1.5rem;
+        outline: none;
+        padding: 0rem .4rem;
+    }
+}
 
+#btn-replace{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    img{
+        width: 20px;
+        height: 20px;
+    }
+    &:hover{
+        transform: scale(1.2);
+        transition: all .04s ease-in;
+    }
+}
 
+#btn-delete{
+    @extend #btn-replace;
+}
+
+#btn-check{
+    @extend #btn-replace;
+}
+
+#addTask{
+    @extend #btn-replace;
+    img{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+#cleanTasks{
+@extend #btn-replace;
+@extend #addTask
+}
+
+.container-date-idea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: .5rem;
+    margin-top: 2rem;
+}
+
+#idea{
+    @extend #btn-replace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        background-color: white;
+        border-radius: 15px;
+        padding: 0.3rem;
+    }
+}

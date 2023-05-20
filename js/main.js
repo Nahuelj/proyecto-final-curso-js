@@ -42,10 +42,10 @@ function createTask (e) {
 
         let inputValue = $inputCreateTask.value;
         let card = `
-        <button id="btn-check">check</button>
+        <button id="btn-check"><img src="./icons/unchecked.svg" alt=""></button>
         <p contenteditable="true" id="taskText">${inputValue}</p>
-        <button id="btn-delete">delete</button>
-        <button id="btn-replace">replace</button>
+        <button id="btn-delete"><img src="./icons/delete-white.png" alt=""></button>
+        <button id="btn-replace"><img src="./icons/replace-white.png" alt=""></button>
                     `
         $newTask.innerHTML = card;
         $container.appendChild($newTask);

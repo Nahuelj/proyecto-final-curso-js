@@ -50,6 +50,22 @@
     animation: respirar 2s ease-in-out infinite;
 }
 
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
 .rotate{
-    opacity: 0.4;
+    animation: rotate 1s linear infinite;
+    img{
+        &:hover{
+        transform: scale(1.2);
+        transition: scale .04s ease-in;
+    }
+    }
+    
 }
