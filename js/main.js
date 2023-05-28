@@ -8,7 +8,7 @@ let $btnCheck = Array.from(document.querySelectorAll("#btn-check"));
 let $taskText = Array.from(document.querySelectorAll("#taskText"));
 let $tasks = Array.from(document.querySelectorAll(".task"));
 const $date = document.getElementById("date");
-
+const $idea = document.getElementById("idea");
 loadTasks();
 
 function updateElements(){
@@ -187,6 +187,13 @@ $date.innerHTML = textDate;
 
 
 // GUARDAR EN EL STORAGE LAS TAREAS
+
+const $quote = document.getElementById("quote");
+const $author = document.getElementById("author");
+const $divContainer = document.getElementById("div-container-quote");
+const $titleQuote = document.getElementById("title-quote");
+const $category = document.getElementById("category");
+
 function saveTasks(){
     let tasks = $container.innerHTML;
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -196,4 +203,73 @@ function loadTasks(){
     let previusTasks = JSON.parse(localStorage.getItem("tasks"));
     $container.innerHTML = previusTasks;
 }
+
+// BOTON FRASE  MOTIVACIONAL 
+const url = 'https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '494ab8495fmshb4d94a00c835309p14e171jsn73655ccc162f',
+		'X-RapidAPI-Host': 'quotes-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+
+fetch(url, options)
+    .then(respose => respose.json())
+    .then(data => {
+        const quotes = data;
+        renderQuote(quotes);
+    })
+
+
+//COLOCAMOS LO EXTRAIDO DE LA API EN EL DOM
+function renderQuote(quotes){
+    let textQuote = `"${quotes[0].quote}"`;
+    let author = quotes[0].author;
+    let category = quotes[0].category;
+    $quote.innerText = textQuote;
+    $author.innerText = `Author: ${author}`;
+    $category.innerText = `Category: ${quotes[0].category}`
+}
+
+//HACEMOS QUE CUANDO EL BOTON SEA CLICKEADO SE VEA LA CITA DEL DIA
+
+const $divQuote = document.getElementById("div-quote");
+const $buttonQuote = document.getElementById("idea")
+const $closeButton = document.getElementById("button-quote");
+const $body = document.getElementById("body");
+
+
+function showQuote(){
+        $divQuote.classList.toggle("not-hidden");
+
+    let bodyChildren = Array.from($body.children);
+    bodyChildren.forEach(element =>{
+        if(!element.classList.contains("not-hidden")){
+        element.classList.toggle("blur");
+        $divQuote.classList.remove("blur");
+        }
+    });
+}
+
+function closeQuote(){
+    
+    $divQuote.classList.add("hidden");
+    setTimeout(() => {
+        $divQuote.classList.remove("not-hidden");
+        $divQuote.classList.remove("hidden");
+    }, 200);
+
+    let bodyChildren = Array.from($body.children);
+    bodyChildren.forEach(element =>{
+        if(!element.classList.contains("not-hidden")){
+        element.classList.toggle("blur");
+        $divQuote.classList.remove("blur");
+        }
+    });
+}
+
+$idea.addEventListener("click", showQuote);
+$closeButton.addEventListener("click", closeQuote);
 
