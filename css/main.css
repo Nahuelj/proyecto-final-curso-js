@@ -121,6 +121,9 @@ h1 img {
 
 .cheked {
   text-decoration: line-through;
+}
+
+.checked-parent {
   opacity: 0.6;
 }
 

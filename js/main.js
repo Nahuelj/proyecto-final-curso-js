@@ -66,8 +66,12 @@ $addTask.addEventListener("keydown", (e)=>{
 });
 
 // ELIMINAR TODAS LAS TAREAS EXISTENTES (CLEAN)
+let previousTasks = "";
+
 function cleanTasks(e){
     e.preventDefault();
+
+    previousTasks = $container.innerHTML;
     $container.classList.add("deleted");
 
     setTimeout(() => {
@@ -76,24 +80,70 @@ function cleanTasks(e){
         updateElements();
         saveTasks();
     }, 95);
+
+    Toastify({
+        text: "Undo change",
+        duration: 3000,
+        close: false,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: false, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #9DB2BF, #9DB2BF)",
+          color: "white",
+          "border-radius": "10px", 
+        },
+        onClick: function(){
+            undoTasks(previousTasks, $container);
+            start();
+            saveTasks();
+        } // Callback after click
+      }).showToast();
 }
+
 $cleanTasks.addEventListener("click", cleanTasks);
 
 // ELIMINAR TAREAS INDIVIDUALMENTE (DELETE)
 
+let previusTask = "";
+let positionPreviousTask = "";
 function deleteTask(){
     // creamos un foreach para iterar en el array de botones y cuando clickeamos en uno se remueva eliminandose con su padre
 
     $btnDelete.forEach(btn => {
     btn.onclick = (e) =>{
         e.preventDefault();
+        previusTask = e.target.parentNode.parentNode;
+        positionPreviousTask = e.target.parentElement.parentElement.nextElementSibling;
+
         btn.parentElement.classList.remove("created");
         btn.parentElement.classList.add("deleted");
         setTimeout(() => {
             btn.parentElement.remove();
+            btn.parentElement.classList.remove("deleted");
+            btn.parentElement.classList.add("created");
             saveTasks();
         }, 90);
         
+
+        Toastify({
+            text: "Undo change",
+            duration: 3000,
+            close: false,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: false, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #9DB2BF, #9DB2BF)",
+              color: "white",
+              "border-radius": "10px", 
+            },
+            onClick: function(){
+                undoTask(previusTask, positionPreviousTask);
+                start();
+                saveTasks();
+            } // Callback after click
+          }).showToast();
     }
 });
 }
@@ -164,6 +214,8 @@ function check(){
     $btnCheck.forEach(btn => {
         btn.onclick = () =>{
             let p = btn.nextElementSibling;
+            let parent = btn.parentElement;
+            parent.classList.toggle("checked-parent");
             p.classList.toggle("cheked")
             saveTasks();
         }
@@ -173,7 +225,7 @@ function check(){
 // RENDERIZAR FECHA ACTUAL
 let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
-let days = ["Domingo",'Lunes', 'Martes', 'Martes', "Miercoles", "Jueves", "Viernes", "Sabado"];
+let days = ["Domingo",'Lunes', 'Martes', "Miercoles", "Jueves", "Viernes", "Sabado"];
 
 let date = new Date();
 let month = months[date.getMonth()];
@@ -273,3 +325,12 @@ function closeQuote(){
 $idea.addEventListener("click", showQuote);
 $closeButton.addEventListener("click", closeQuote);
 
+// TOASTIFY
+
+function undoTasks(tasks, element){
+    element.innerHTML = tasks;
+}
+
+function undoTask(task, position){
+    $container.insertBefore(task, position);
+}

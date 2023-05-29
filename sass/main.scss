@@ -68,6 +68,9 @@ h1{
 
 .cheked{
     text-decoration: line-through;
+}
+
+.checked-parent{
     opacity: .6;
 }
 
@@ -216,3 +219,4 @@ form{
 .blur{
     filter: blur(5px);
 }
+
