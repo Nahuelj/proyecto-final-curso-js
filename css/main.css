@@ -139,7 +139,7 @@ form input {
   padding: 0rem 0.4rem;
 }
 
-#btn-replace, #idea, #cleanTasks, #addTask, #btn-check, #btn-delete {
+#btn-replace, #idea, #settings, #cleanTasks, #addTask, #btn-check, #btn-delete {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,11 +147,11 @@ form input {
   border: none;
   cursor: pointer;
 }
-#btn-replace img, #idea img, #cleanTasks img, #addTask img, #btn-check img, #btn-delete img {
+#btn-replace img, #idea img, #settings img, #cleanTasks img, #addTask img, #btn-check img, #btn-delete img {
   width: 20px;
   height: 20px;
 }
-#btn-replace:hover, #idea:hover, #cleanTasks:hover, #addTask:hover, #btn-check:hover, #btn-delete:hover {
+#btn-replace:hover, #idea:hover, #settings:hover, #cleanTasks:hover, #addTask:hover, #btn-check:hover, #btn-delete:hover {
   transform: scale(1.2);
   transition: all 0.04s ease-in;
 }
@@ -170,12 +170,12 @@ form input {
   margin-top: 2rem;
 }
 
-#idea {
+#idea, #settings {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#idea img {
+#idea img, #settings img {
   background-color: white;
   border-radius: 15px;
   padding: 0.3rem;
