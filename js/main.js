@@ -223,9 +223,18 @@ function check(){
 }
 
 // RENDERIZAR FECHA ACTUAL
-let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+let months = ['January','February','March','April','May','June','July','August','September','October','November','December'
+];
 
-let days = ["Domingo",'Lunes', 'Martes', "Miercoles", "Jueves", "Viernes", "Sabado"];
+let days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+];
 
 let date = new Date();
 let month = months[date.getMonth()];
@@ -233,7 +242,7 @@ let day = days[date.getDay()];
 let year = date.getFullYear();
 let number = date.getDate();
 
-let textDate = `${day} ${number} de ${month} ${year}`;
+let textDate = `${day} ${number} ${month} ${year}`;
 
 $date.innerHTML = textDate;
 
@@ -334,3 +343,40 @@ function undoTasks(tasks, element){
 function undoTask(task, position){
     $container.insertBefore(task, position);
 }
+
+//SETTINGS
+const $buttonSettings = document.getElementById("settings");
+const $divSettings = document.getElementById("divSettings");
+const $buttonCloseSettings = document.getElementById("buttonCloseSettings");
+
+function showSettings(){
+    $divSettings.classList.toggle("not-hidden");
+
+    let bodyChildren = Array.from($body.children);
+    bodyChildren.forEach(element =>{
+        if(!element.classList.contains("not-hidden")){
+        element.classList.toggle("blur");
+        $divQuote.classList.remove("blur");
+        }
+    });
+}
+
+function closeSettings(){
+    
+    $divSettings.classList.add("hidden");
+    setTimeout(() => {
+        $divSettings.classList.remove("not-hidden");
+        $divSettings.classList.remove("hidden");
+    }, 200);
+
+    let bodyChildren = Array.from($body.children);
+    bodyChildren.forEach(element =>{
+        if(!element.classList.contains("not-hidden")){
+        element.classList.toggle("blur");
+        $divQuote.classList.remove("blur");
+        }
+    });
+}
+
+$buttonSettings.addEventListener("click", showSettings)
+$buttonCloseSettings.addEventListener("click", closeSettings);

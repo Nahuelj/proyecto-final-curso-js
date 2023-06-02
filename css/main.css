@@ -248,7 +248,7 @@ form input {
 }
 
 .blur {
-  filter: blur(5px);
+  filter: blur(15px);
 }
 
 /*# sourceMappingURL=main.css.map */
