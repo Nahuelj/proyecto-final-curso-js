@@ -16,13 +16,13 @@ body{
     font-family: sans-serif;
     background-color: #181A1B;
     overflow-x: hidden;
-
 }
 
 #date{
     background-color: white;
-    padding: 0.3rem 0.7rem;
-    border-radius: 15px;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 1.25rem;
 }
 
 h1{
@@ -40,17 +40,19 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
+    gap: .8rem;
     padding: 1rem;
-    margin: 1rem;
+    margin: .5rem;
     background-color: rgb(9, 92, 120);
     border-radius: 5px;
     p{
         color: white;
         background-color: black;
         border-radius: 10px;
-        padding: 0 10px;
+        padding: 5px 10px;
         text-align: center;
+        font-size: 1.2rem;
+        max-width: 50vw;
     }
 }
 
@@ -59,7 +61,7 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 320px;
+    width: 360px;
 }
 
 .selected{
@@ -78,11 +80,13 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: .5rem;
     input{
         height: 1.5rem;
+        width: 13rem;
+        padding: 0.3rem 0;
         outline: none;
-        padding: 0rem .4rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -94,8 +98,8 @@ form{
     border: none;
     cursor: pointer;
     img{
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
     }
     &:hover{
         transform: scale(1.2);
@@ -114,8 +118,8 @@ form{
 #addTask{
     @extend #btn-replace;
     img{
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
     }
 }
 
@@ -129,7 +133,7 @@ form{
     justify-content: center;
     align-items: center;
     align-content: center;
-    gap: .5rem;
+    gap: .7rem;
     margin-top: 2rem;
 }
 
@@ -140,13 +144,15 @@ form{
     align-items: center;
     img{
         background-color: white;
-        border-radius: 15px;
-        padding: 0.3rem;
+        border-radius: 50%;
+        padding: 0.4rem;
+        height: 30px;
+        width: 30px;
     }
 }
 
 .frase{
-    width: 70vw;
+    width: fit-content;
     background-color: rgb(9,92,120, .7);
     padding: 1rem;
     border-radius: 10px;
@@ -157,7 +163,7 @@ form{
     position: absolute;
     top: 25%;
     display: none;
-    button{
+    .button-close-block{
         position: relative;
         right: calc(-100% + 10px);
         top: -10px;
@@ -222,4 +228,90 @@ form{
 
 #settings{
     @extend #idea;
+}
+
+//themes
+.container-themes{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    .button-theme{
+        background-color: black;
+        width: 35px;
+        height: 30px;
+        border-radius: 10px;
+        border: 3px solid rgba(0, 0, 0, 0.438);
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+            animation: scale .3s ease;
+        }
+    }
+    .white{
+        background-color: white;
+    }
+    .blue{
+        background-color: blue;
+    }
+    .smerald{
+        background-color: rgb(9,92,120);
+    }
+    .pink{
+        background-color: pink;
+    }
+    .purple{
+        background-color: purple;
+    }
+}
+
+.container-button-show-title{
+    display: flex !important;
+    flex-direction: row !important;
+    button{
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+            animation: scale .3s ease;
+        }
+    }
+}
+
+
+.container-custom-phrase{
+    display: none !important;
+}
+
+.container-button-save{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 1rem;
+    .button-save{
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 35px;
+        &:hover{
+            transform: scale(1.1);
+            animation: scale .3s ease;
+        }
+        &:active{
+            opacity: 0.5;
+        }
+}
+}
+
+#container-checkbox{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center;
 }

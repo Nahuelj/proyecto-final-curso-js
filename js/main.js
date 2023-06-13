@@ -380,3 +380,51 @@ function closeSettings(){
 
 $buttonSettings.addEventListener("click", showSettings)
 $buttonCloseSettings.addEventListener("click", closeSettings);
+
+// THEMES
+
+
+
+//show settings
+
+const $buttonYes = document.querySelector("#button-yes");
+const $buttonNo = document.querySelector("#button-no");
+const $buttonSave = document.getElementById("buttonSave");
+const $homeIcon = document.getElementById("homeIcon");
+const $inputCustomPhrase = document.getElementById("inputCustomPhrase");
+const $containerTitle = document.getElementById("container-title");
+
+$buttonYes.disabled = true;
+
+$buttonNo.addEventListener("click", () => {
+    $buttonYes.disabled = !$buttonYes.disabled;
+    $buttonNo.disabled = !$buttonNo.disabled;
+})
+
+$buttonYes.addEventListener("click", () => {
+    $buttonNo.disabled = !$buttonNo.disabled;
+    $buttonYes.disabled = !$buttonYes.disabled;
+});
+
+const $customPhrase = document.getElementById("customPhrase");
+
+
+$buttonNo.addEventListener("click", () =>{
+    $customPhrase.classList.remove("container-custom-phrase");
+    $homeIcon.style.display = "none";
+} );
+
+$buttonYes.addEventListener("click", () =>{
+    $customPhrase.classList.add("container-custom-phrase");
+    $homeIcon.style.display = "";
+} );
+
+function replacePhrase(){
+    let customPhrase = $inputCustomPhrase.value;
+    const $customPhrase = document.createElement("h1");
+    $customPhrase.classList.add("custom-phrase-dom");
+    $customPhrase.innerText = customPhrase;
+    $containerTitle.appendChild($customPhrase);
+}
+
+$buttonSave.addEventListener("click", replacePhrase);

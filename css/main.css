@@ -74,8 +74,9 @@ body {
 
 #date {
   background-color: white;
-  padding: 0.3rem 0.7rem;
-  border-radius: 15px;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 1.25rem;
 }
 
 h1 {
@@ -93,9 +94,9 @@ h1 img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0.5rem;
   background-color: rgb(9, 92, 120);
   border-radius: 5px;
 }
@@ -103,8 +104,10 @@ h1 img {
   color: white;
   background-color: black;
   border-radius: 10px;
-  padding: 0 10px;
+  padding: 5px 10px;
   text-align: center;
+  font-size: 1.2rem;
+  max-width: 50vw;
 }
 
 #container {
@@ -112,7 +115,7 @@ h1 img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 320px;
+  width: 360px;
 }
 
 .selected {
@@ -131,12 +134,14 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 0.5rem;
 }
 form input {
   height: 1.5rem;
+  width: 13rem;
+  padding: 0.3rem 0;
   outline: none;
-  padding: 0rem 0.4rem;
+  font-size: 1.4rem;
 }
 
 #btn-replace, #idea, #settings, #cleanTasks, #addTask, #btn-check, #btn-delete {
@@ -148,8 +153,8 @@ form input {
   cursor: pointer;
 }
 #btn-replace img, #idea img, #settings img, #cleanTasks img, #addTask img, #btn-check img, #btn-delete img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 #btn-replace:hover, #idea:hover, #settings:hover, #cleanTasks:hover, #addTask:hover, #btn-check:hover, #btn-delete:hover {
   transform: scale(1.2);
@@ -157,8 +162,8 @@ form input {
 }
 
 #addTask img, #cleanTasks img {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
 }
 
 .container-date-idea {
@@ -166,7 +171,7 @@ form input {
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
   margin-top: 2rem;
 }
 
@@ -177,12 +182,14 @@ form input {
 }
 #idea img, #settings img {
   background-color: white;
-  border-radius: 15px;
-  padding: 0.3rem;
+  border-radius: 50%;
+  padding: 0.4rem;
+  height: 30px;
+  width: 30px;
 }
 
 .frase {
-  width: 70vw;
+  width: fit-content;
   background-color: rgba(9, 92, 120, 0.7);
   padding: 1rem;
   border-radius: 10px;
@@ -194,7 +201,7 @@ form input {
   top: 25%;
   display: none;
 }
-.frase button {
+.frase .button-close-block {
   position: relative;
   right: calc(-100% + 10px);
   top: -10px;
@@ -207,7 +214,7 @@ form input {
   background-color: transparent;
   border: none;
 }
-.frase button img {
+.frase .button-close-block img {
   width: 20px;
   height: 20px;
   opacity: 0.9;
@@ -249,6 +256,90 @@ form input {
 
 .blur {
   filter: blur(15px);
+}
+
+.container-themes {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+.container-themes .button-theme {
+  background-color: black;
+  width: 35px;
+  height: 30px;
+  border-radius: 10px;
+  border: 3px solid rgba(0, 0, 0, 0.438);
+  cursor: pointer;
+}
+.container-themes .button-theme:hover {
+  transform: scale(1.1);
+  animation: scale 0.3s ease;
+}
+.container-themes .white {
+  background-color: white;
+}
+.container-themes .blue {
+  background-color: blue;
+}
+.container-themes .smerald {
+  background-color: rgb(9, 92, 120);
+}
+.container-themes .pink {
+  background-color: pink;
+}
+.container-themes .purple {
+  background-color: purple;
+}
+
+.container-button-show-title {
+  display: flex !important;
+  flex-direction: row !important;
+}
+.container-button-show-title button {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container-button-show-title button:hover {
+  transform: scale(1.1);
+  animation: scale 0.3s ease;
+}
+
+.container-custom-phrase {
+  display: none !important;
+}
+
+.container-button-save {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 1rem;
+}
+.container-button-save .button-save {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 35px;
+}
+.container-button-save .button-save:hover {
+  transform: scale(1.1);
+  animation: scale 0.3s ease;
+}
+.container-button-save .button-save:active {
+  opacity: 0.5;
+}
+
+#container-checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

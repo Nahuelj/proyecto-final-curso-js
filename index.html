@@ -11,11 +11,12 @@
 
 <body id="body">
     <div class="container-date-idea">
-        <button id="settings"><img src="./icons/settings-black.png" alt=""></button>
         <p id="date"></p>
         <button id="idea"><img src="./icons/idea-black.png" alt=""></button>
     </div>
-    <h1>To-do <img src="./icons/to-do-white.png" alt=""></h1>
+    <div id="container-title">
+        <h1 id="homeIcon">To-do <img src="./icons/to-do-white.png" alt=""></h1>
+    </div>
     <form class="form" action="">
         <input id="inputCreateTask" type="text">
         <button id="addTask"><img src="./icons/add-black.png" alt=""></button>
@@ -26,7 +27,7 @@
     </div>
 
     <div id="div-quote" class="frase">
-        <button id="button-quote"><img src="./icons/close-white.png" alt=""></button>
+        <button class="button-close-block" id="button-quote"><img src="./icons/close-white.png" alt=""></button>
         <div id="div-container-quote">
             <p id="title-quote">Quote of the day</p>
             <p id="quote"></p>
@@ -36,14 +37,32 @@
     </div>
 
     <div id="divSettings" class="frase settings">
-        <button id="buttonCloseSettings"><img src="./icons/close-white.png" alt=""></button>
-        <div>
+        <button class="button-close-block" id="buttonCloseSettings"><img src="./icons/close-white.png" alt=""></button>
+        <div class="container-options-settings">
             <p>Themes</p>
-            <p>black, white, pink, blue, purple, smerald</p>
-            <p>Mostrar icono del menú</p>
-            <p>si no</p>
-            <p>frase personalizada</p>
-            <input type="text">
+            <div class="container-themes fit-content">
+                <button class="button-theme black"></button>
+                <button class="button-theme white" ></button>
+                <button class="button-theme pink"></button>
+                <button class="button-theme blue"></button>
+                <button class="button-theme purple"></button>
+                <button class="button-theme smerald"></button>
+            </div>
+            <p>Show home icon</p>
+            <div class="container-button-show-title fit-content">
+                <button id="button-yes">Yes</button>
+                <button id="button-no">No</button>
+            </div>
+            <div id="customPhrase" class="container-custom-phrase">
+                <p>Custom phrase</p>
+                <div id="container-checkbox">
+                    <input type="checkbox" name="" id="">
+                    <p>Replace title for quote of the day</p>
+                </div>
+            </div>
+            <div class="container-button-save">
+                <button id="buttonSave" class="button-save">Save</button>  
+            </div>
         </div>
     </div>
         
