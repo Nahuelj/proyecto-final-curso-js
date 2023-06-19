@@ -189,7 +189,7 @@ form input {
 }
 
 .frase {
-  width: fit-content;
+  width: 500px;
   background-color: rgba(9, 92, 120, 0.7);
   padding: 1rem;
   border-radius: 10px;
